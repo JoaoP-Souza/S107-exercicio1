@@ -1,0 +1,99 @@
+/* lista-filmes.component.css */
+
+
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #ccc;
+  text-align: left;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+table td,
+table th {
+  border-bottom: 1px solid #ccc;
+  padding: 15px;
+}
+
+h1 {
+  font-size: 30px;
+  font-family: sans-serif;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.add-movie {
+  display: flexbox;
+  position: relative;
+
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(111, 4, 4);
+  color: #EEEEEE;
+  font-weight: 200;
+  border-radius: 4%;
+  margin-bottom: 20px;
+  padding: 6px;
+  border: none;
+
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  column-gap: 20px;
+}
+
+.addFilme {
+  display: flex;
+  flex-direction: line;
+  justify-content: center;
+
+}
+
+.form-group{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+
+.show-mean {
+  display: flex;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(111, 4, 4);
+  color: #FFFFFF; /* White text color */
+  font-weight: 200;
+  border-radius: 4%;
+  padding: 6px;
+  border: none;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border: 1px solid #ced4da; /* Default border color */
+}
+
+.form-control.invalid {
+  border-color: red; /* Red border color for invalid values */
+}
+

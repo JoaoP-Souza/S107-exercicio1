@@ -1,0 +1,73 @@
+<div class="custom-container">
+  <h1>My Cinema List</h1>
+
+  <form class="addFilme">
+    <div class="form-group">
+      <label for="title" style="font-weight: bold; color: black;">Nome:</label>
+      <span>&nbsp;</span>
+      <input type="text" class="form-control" id="title" name="title">
+    </div>
+  
+    <div class="form-group">
+      <label for="clas" style="font-weight: bold; color: black;">Turma:</label>
+      <span>&nbsp;</span>
+      <input type="text" class="form-control" id="clas" name="clas">
+    </div>
+    
+    <div class="form-group">
+      <label for="period" style="font-weight: bold; color: black;">periodo:</label>
+      <span>&nbsp;</span>
+      <input type="text" class="form-control" id="period" name="period">
+    </div>
+    
+    <div class="form-group text-center">
+      <label for="rating" style="font-weight: bold; color: black;">Nota:</label>
+      <span>&nbsp;</span>
+      <input type="text" class="form-control" id="rating" name="rating">
+    </div>
+      
+    
+  </form>
+
+  <button class="add-movie" (click)="onAddMovieClick()">Adicionar aluno</button>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>turma</th>
+        <th>periodo</th>
+        <th>Nota</th>
+        <th>Excluir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let aluno of filmes">
+        <td>{{ aluno.nome }}</td>
+        <td>{{ aluno.turma }}</td>
+        <td>{{ aluno.periodo }}</td>
+        <td>{{ aluno.nota }}</td>
+        <td><button class="btn btn-danger" (click)="deleteFilme(aluno)">X</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Adicionando o elemento para exibir a média -->
+  <p class="show-mean" style="margin-top: 100px;">A média das notas dos filmes é: {{ mediaNotas | number: '1.1-2' }}</p>
+</div>
+
+<style>
+  .custom-container {
+    background-color: #d2cfcf; /* Define a cor de fundo para branco */
+    /* Outros estilos aqui... */
+  }
+</style>
+
+<style>
+  th,
+  td {
+    background-color: #d2cfcf; /* Define um tom de cinza claro */
+  }
+</style>
+
+
