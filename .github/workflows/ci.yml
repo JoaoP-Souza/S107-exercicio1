@@ -1,0 +1,27 @@
+name: CI Class
+
+on:
+   push:
+     branches:
+        - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18.13'
+
+    - name: Instalar dependências
+      working-directory: S107-exercicio1
+      run: npm install
+    
+    - name: Install Angular CLI
+      working-directory: S107-exercicio1
+      run: npm install -g @angular/cli
