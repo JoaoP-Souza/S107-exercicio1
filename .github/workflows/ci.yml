@@ -19,11 +19,9 @@ jobs:
         node-version: '18.13'
 
     - name: Instalar dependências
-      working-directory: S107-exercicio1
       run: npm install
     
     - name: Install Angular CLI
-      working-directory: S107-exercicio1
       run: npm install -g @angular/cli
 
   test:
