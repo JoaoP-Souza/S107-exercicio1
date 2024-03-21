@@ -1,0 +1,62 @@
+name: CI Class
+
+on:
+   push:
+     branches:
+        - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18.13'
+
+    - name: Instalar dependências
+      run: npm install
+    
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18.13'
+
+    - name: Instalar dependências
+      run: npm install
+    
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli   
+
+    - name: Executar testes
+      run: ng test --browsers ChromeHeadless --watch=false 
+      
+  # notification:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Checkout do código
+  #     uses: actions/checkout@v2
+
+  #   - name: Configurar Node.js
+  #     uses: actions/setup-node@v2
+  #     with:
+  #       node-version: '18.13'
+  #   - name: Notification 
+  #     run: sh scripts/shell.sh
+     
+     
+ 
