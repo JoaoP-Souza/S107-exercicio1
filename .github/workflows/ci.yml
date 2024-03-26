@@ -43,7 +43,15 @@ jobs:
       run: npm install -g @angular/cli   
 
     - name: Executar testes
-      run: ng test --browsers ChromeHeadless --watch=false 
+      run: ng test --browsers ChromeHeadless --watch=false
+
+    #nao esta funcionando porque o jasmine nao esta gerando os arquivos de relatorio,
+    #mas os passos seriam estes para exportar para o actions, pois os relatorios deveriam ser gerados  na pasta coverage
+    # - name: Subir relatorio
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #   name: test-report
+    #   path: coverage 
       
   notification:
     runs-on: ubuntu-latest
