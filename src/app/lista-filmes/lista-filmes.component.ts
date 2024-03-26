@@ -110,14 +110,18 @@ export class ListaFilmesComponent implements OnInit {
   }
 
   calcularMedia() {
-    const totalFilmes = this.filmes.length;
-    if (totalFilmes === 0) {
-      this.mediaNotas = 0; // Defina a média como 0 se não houver filmes
-      return;
+    let totalFilmes = 0;
+    let somaNotas = 0;
+
+    for (const filme of this.filmes) {
+        if (filme.nota !== undefined && !isNaN(parseFloat(filme.nota))) {
+            somaNotas += parseFloat(filme.nota);
+            totalFilmes++;
+        }
     }
 
-    const somaNotas = this.filmes.reduce((acc, aluno) => acc + parseFloat(aluno.nota || '0'), 0);
-    this.mediaNotas = somaNotas / totalFilmes; // Atualize a propriedade mediaNotas
-  }
+    this.mediaNotas = totalFilmes === 0 ? 0 : somaNotas / totalFilmes;
+}
+
 
 }

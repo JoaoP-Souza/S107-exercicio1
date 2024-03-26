@@ -23,16 +23,16 @@ describe('ListaFilmesComponent', () => {
 
 
   
-  it('should add a movie and verify the return ', () => {
+  it('should add a student and verify the return ', () => {
     // chamanado o método e passando os valores por parametro
-    const result = component.onAddMovieClick('aluno 1', 'Ação', '2022', '4.5', true);
+    const result = component.onAddMovieClick('aluno 1', 'A', 'noturno', '4.5', true);
     // verificando retorno do aluno  
     expect(result).toBe('aluno adicionado com sucesso!');
   });
 
-  it('should add a movie and verify the size of the string', () => {
+  it('should add a student and verify the size of the string', () => {
     // chamanado o método e passando os valores por parametro
-    component.onAddMovieClick('aluno 1', 'Ação', '2022', '4.5', true);
+    component.onAddMovieClick('aluno 1', 'A', 'noturno', '4.5', true);
     // verificando retorno do aluno  
     expect(component.filmes.length).toBe(1);
 
@@ -53,6 +53,32 @@ describe('ListaFilmesComponent', () => {
   expect(result).toBe('A nota deve ser um número entre 0 e 10.');
   });
 
+  it('should not add a movie with invalid low grade', () => {
+    component.newFilme.nome = '';
+    component.newFilme.turma = '';
+    component.newFilme.periodo = '';
+    component.newFilme.nota = '-1000000';
+  
+    const result = component.onAddMovieClick();
+  
+    expect(component.filmes.length).toBe(0);
+  
+  expect(result).toBe('A nota deve ser um número entre 0 e 10.');
+  });
+ 
+  it('should not add a movie with invalid high grade', () => {
+    component.newFilme.nome = '';
+    component.newFilme.turma = '';
+    component.newFilme.periodo = '';
+    component.newFilme.nota = '1000000';
+  
+    const result = component.onAddMovieClick();
+  
+    expect(component.filmes.length).toBe(0);
+  
+  expect(result).toBe('A nota deve ser um número entre 0 e 10.');
+  });
+
   it('should handle error when accessing input fields', () => {
     spyOn(document, 'querySelector').and.returnValue(null);
   
@@ -62,18 +88,18 @@ describe('ListaFilmesComponent', () => {
   });
   
   
-  it('should remove a movie', () => {
+  it('should remove a student', () => {
     const initialMovies = [
       {
         nome: 'aluno 1',
-        turma: 'Ação',
-        periodo: '2022',
+        turma: 'B',
+        periodo: 'integral',
         nota: '4.5',
       },
       {
         nome: 'aluno 2',
-        turma: 'Comédia',
-        periodo: '2021',
+        turma: 'C',
+        periodo: 'noturno',
         nota: '3.8',
       },
     ];
@@ -90,7 +116,7 @@ describe('ListaFilmesComponent', () => {
   });
   
   
-  it('deve definir a média como 0 se não houver filmes', () => {
+  it('should define the average grade as 0 if no students are registered', () => {
     
     component.filmes = [];
     component.calcularMedia();
@@ -98,17 +124,17 @@ describe('ListaFilmesComponent', () => {
     expect(component.mediaNotas).toBe(0);
   });
   
-  it('deve calcular a média corretamente quando há filmes', () => {
+  it('should calculate the average score', () => {
     
     component.filmes = [
-      { nome: 'aluno 1', turma: 'Ação', periodo: '2022', nota: '5' },
-      { nome: 'aluno 2', turma: 'Aventura', periodo: '2021', nota: '7' },
-      { nome: 'aluno 3', turma: 'Comédia', periodo: '2020', nota: '8' }
+      { nome: 'aluno 1', turma: 'A', periodo: 'noturno', nota: '5' },
+      { nome: 'aluno 2', turma: 'A', periodo: 'noturno', nota: '7' },
+      { nome: 'aluno 3', turma: 'C', periodo: 'integral', nota: '' }
     ];
       
     component.calcularMedia();
     // Calcule a média manualmente
-    const somaNotas = 5 + 7 + 8;
+    const somaNotas = 6 + 6 + 6;
     const mediaEsperada = somaNotas / component.filmes.length;
     
     expect(component.mediaNotas).toBe(mediaEsperada);
