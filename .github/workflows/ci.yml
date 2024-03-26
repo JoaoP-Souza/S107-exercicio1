@@ -65,7 +65,10 @@ jobs:
            node-version: '18.13'
    
        - name: Notification 
+         env:
+           EMAIL: jksparksouza@hotmail.com
          run: sh scripts/shell.sh $EMAIL
+
 
      
      
