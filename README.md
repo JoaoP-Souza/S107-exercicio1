@@ -1,27 +1,16 @@
-# Exercicio1
+[![CI Class](https://github.com/JoaoP-Souza/S107-exercicio1/actions/workflows/ci.yml/badge.svg)](https://github.com/JoaoP-Souza/S107-exercicio1/actions/workflows/ci.yml)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
 
-## Development server
+Ao clonar, abra o terminal na pasta MyCinemaList e insira os seguintes comandos
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+npm i - instala dependências do projeto
 
-## Code scaffolding
+npm install -g @angular/cli@15 - instala a versão 15 do angular no projeto
+npm install --save-dev jasmine - instala o framework jasmine de testes
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+ng add @angular/material - adiciona a lib de ui angular Material UI
+Após executá-los, abra um prompts de comando e execute,
 
-## Build
+npm test, para executar os testes unitários, usando da ferramenta Jasmine
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ng serve --open, para iniciar a aplicação web em um ambiente loca
